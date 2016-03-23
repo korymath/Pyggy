@@ -1,10 +1,13 @@
 from os import system
 import warnings
 
+import time
 from keys import uk, aid
 
 import speech_recognition as sr
 from pb_py import main as API
+
+import csv
 
 host = 'aiaas.pandorabots.com'
 user_key = uk
@@ -33,20 +36,33 @@ def speak_response(response):
 	system("say -v Fiona -r 160 " + bot_response)
 	print("Pyggy said: " + bot_response)
 
-opener = "Why don't you start the conversation?"
-speak_response(opener)
-
 # obtain audio from the microphone	
 warnings.filterwarnings("ignore")
 r = sr.Recognizer()
-with sr.Microphone() as source:
-	while True:
+
+timenow = time.time()
+with open('logs/' + str(timenow) + '_log.csv', 'wb') as csvfile:
+	with sr.Microphone() as source:
+		
+		# Make sure you handle the ambient noise
 		r.adjust_for_ambient_noise(source)
-		audio = r.listen(source)
-		input_text = r.recognize_google(audio)
-		print("You said: " + input_text)
-		result = API.talk(user_key, app_id, host, botname, input_text, session_id=True, recent=True)
-		speak_response(result['response'])
+		writer = csv.writer(csvfile)
+		fieldnames = ['timestamp', 'input_text', 'response']
+		writer.writerow(fieldnames)
+		opener = "Let's start with your name..."
+		speak_response(opener)
+		while True:
+			audio = r.listen(source)
+			input_text = r.recognize_google(audio)
+			print("You said: " + input_text)
+			result = API.talk(user_key, app_id, host, botname, input_text, session_id=True, recent=True)
+			response = result['response']
+			writer.writerow([time.time(),input_text,response])
+			csvfile.flush()
+			speak_response(response)
+			time.sleep(0.1)
+			
+			
 
 
 
