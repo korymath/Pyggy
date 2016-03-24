@@ -9,6 +9,8 @@ from pb_py import main as API
 
 import csv
 
+import ngram
+
 host = 'aiaas.pandorabots.com'
 user_key = uk
 app_id = aid
@@ -32,19 +34,24 @@ botname = 'pyggy2'
 
 def speak_response(response):
 	bot_response = response
+	# Some basic data cleaning
 	bot_response = bot_response.replace("'", "")
-	system("say -v Fiona -r 160 " + bot_response)
+	bot_response = bot_response.replace("\n", "")
+	bot_response = bot_response.replace(";", "")
 	print("Pyggy said: " + bot_response)
+	system("say -v Fiona -r 110 " + bot_response)
+	
 
 # obtain audio from the microphone	
 warnings.filterwarnings("ignore")
 r = sr.Recognizer()
 
+lm = ngram.train_char_lm("pg.txt", order=12)
+short_sonnet = ngram.generate_text(lm, 12, nletters=200)
+
 timenow = time.time()
 with open('logs/' + str(timenow) + '_log.csv', 'wb') as csvfile:
 	with sr.Microphone() as source:
-		
-		# Make sure you handle the ambient noise
 		r.adjust_for_ambient_noise(source)
 		writer = csv.writer(csvfile)
 		fieldnames = ['timestamp', 'input_text', 'response']
@@ -53,14 +60,18 @@ with open('logs/' + str(timenow) + '_log.csv', 'wb') as csvfile:
 		speak_response(opener)
 		while True:
 			audio = r.listen(source)
-			input_text = r.recognize_google(audio)
-			print("You said: " + input_text)
-			result = API.talk(user_key, app_id, host, botname, input_text, session_id=True, recent=True)
-			response = result['response']
-			writer.writerow([time.time(),input_text,response])
-			csvfile.flush()
-			speak_response(response)
-			time.sleep(0.1)
+			try:
+				input_text = r.recognize_google(audio)
+				print("You said: " + input_text)
+				result = API.talk(user_key, app_id, host, botname, input_text, session_id=True, recent=True)
+				response = result['response']
+				writer.writerow([time.time(),input_text,response])
+				csvfile.flush()
+				speak_response(response)
+				speak_response(short_sonnet)
+				# time.sleep(0.1)
+			except:
+				pass
 			
 			
 
