@@ -37,6 +37,6 @@ def train_char_lm(fname, order=4):
     outlm = {hist:normalize(chars) for hist, chars in lm.iteritems()}
     return outlm
 
-# lm = train_char_lm("sonnets.txt", order=6)
+# lm = train_char_lm("shakespeare_input.txt", order=8)
 
-# print generate_text(lm, 6, nletters=200)
+# print generate_text(lm, 8, nletters=200)
