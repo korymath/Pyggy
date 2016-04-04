@@ -3,6 +3,12 @@
 	[
 		{
 			"path": "."
+		},
+		{
+			"path": "/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/cornell movie-dialogs corpus"
+		},
+		{
+			"path": "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot"
 		}
 	]
 }

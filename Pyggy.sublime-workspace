@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"botre",
+				"botresponse1"
+			],
+			[
+				"bot",
+				"botresponse2"
+			],
+			[
+				"text",
+				"text"
+			],
+			[
 				"simg",
 				"simEMGdiff"
 			],
@@ -68,34 +80,26 @@
 	"buffers":
 	[
 		{
+			"file": "pyggyOnPyggy.py",
+			"settings":
+			{
+				"buffer_size": 3408,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/chatterbot.py",
+			"settings":
+			{
+				"buffer_size": 2801,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "pyggy.py",
 			"settings":
 			{
-				"buffer_size": 2405,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "sonnets.txt",
-			"settings":
-			{
-				"buffer_size": 100227,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "ngram.py",
-			"settings":
-			{
-				"buffer_size": 1296,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "shakespear.txt",
-			"settings":
-			{
-				"buffer_size": 99993,
+				"buffer_size": 1897,
 				"line_ending": "Unix"
 			}
 		}
@@ -148,7 +152,7 @@
 	},
 	"console":
 	{
-		"height": 0.0,
+		"height": 167.0,
 		"history":
 		[
 		]
@@ -164,13 +168,32 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/pyggy/good/Pyggy"
+		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/pyggy/good/Pyggy",
+		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot",
+		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/adapters",
+		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/adapters/io",
+		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/adapters/logic",
+		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/conversation",
+		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/corpus",
+		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/corpus/data",
+		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/corpus/data/english",
+		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/utils"
 	],
 	"file_history":
 	[
+		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/chatterbot.py",
+		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/corpus/corpus.py",
+		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/training.py",
+		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/cornell movie-dialogs corpus/conversations-to-aiml.py",
+		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/cornell movie-dialogs corpus/movielines10000.json",
+		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/pyggy/good/Pyggy/chatbots.py",
+		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/cornell movie-dialogs corpus/movielines.json",
+		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/pyggy/good/Pyggy/ngram.py",
+		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/SABL/SABL_java (1)/TAMERAgent.java",
+		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/pyggy/good/Pyggy/sonnets.txt",
+		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/pyggy/good/Pyggy/pyggy.py",
 		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/pyggy/good/Pyggy/chatter.py",
 		"/Users/korymathewson/Desktop/Maluuba Offer",
-		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/pyggy/good/Pyggy/ngram.py",
 		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/pyggy/good/Pyggy/rnn.py",
 		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/pyggy/good/Pyggy/1458774890.71_log.csv",
 		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/pyggy/good/Pyggy/log.csv",
@@ -264,7 +287,7 @@
 	],
 	"find":
 	{
-		"height": 25.0
+		"height": 37.0
 	},
 	"find_in_files":
 	{
@@ -278,6 +301,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"<",
+			"bot.",
 			"system",
 			"time",
 			"self",
@@ -329,19 +354,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "pyggy.py",
+					"file": "pyggyOnPyggy.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2405,
+						"buffer_size": 3408,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2400,
-								2400
+								689,
+								689
 							]
 						],
 						"settings":
@@ -350,7 +375,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 785.0,
+						"translation.y": 191.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -358,49 +383,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "sonnets.txt",
+					"file": "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/chatterbot.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 100227,
+						"buffer_size": 2801,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								100226,
-								100226
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "ngram.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1296,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1255,
-								1255
+								1773,
+								1773
 							]
 						],
 						"settings":
@@ -410,35 +405,36 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 198.0,
+						"translation.y": 1023.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "shakespear.txt",
-					"semi_transient": true,
+					"buffer": 2,
+					"file": "pyggy.py",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 99993,
+						"buffer_size": 1897,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1569,
+								1531
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 11318.0,
+						"translation.y": 801.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -480,7 +476,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 492.0
+		"height": 248.0
 	},
 	"output.find_results":
 	{
@@ -529,7 +525,7 @@
 	{
 	},
 	"show_minimap": true,
-	"show_open_files": false,
+	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 239.0,

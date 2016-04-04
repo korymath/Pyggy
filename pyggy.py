@@ -68,7 +68,6 @@ with open('logs/' + str(timenow) + '_log.csv', 'wb') as csvfile:
 				writer.writerow([time.time(),input_text,response])
 				csvfile.flush()
 				speak_response(response)
-				speak_response(short_sonnet)
 				# time.sleep(0.1)
 			except:
 				pass
