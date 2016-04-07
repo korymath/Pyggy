@@ -1,53 +1,131 @@
 from os import system
 import warnings
-
 import time
 from keys import uk, aid
-
 import speech_recognition as sr
 from pb_py import main as API
-
 import csv
-
 import ngram
+import random
+from chatterbot import ChatBot
+import ngram
+import os.path
+import re
+import sys
+import thread
+import random
 
+def speak_who(text, name):
+	print name + " said: " + text
+	if name == 'YouBot':
+		if robotoutput == 'voiceandtext':
+			system("say -v Tom -r 250 " + text) 
+		return True
+	elif name == 'Pyggy':
+		if robotoutput == 'voiceandtext':
+			system("say -v Samantha -r 250 " + text)
+		return True
+	else:
+		return False
+
+def speak_response(response, name):
+	bot_response = response
+	
+	# Some basic data cleaning
+	bot_response = bot_response.replace("<u>", "")
+	bot_response = bot_response.replace("</u>", "")
+	bot_response = bot_response.replace("\n", "")
+	regex = re.compile('[^a-zA-Z0-9 ,.?!]')
+	bot_response = regex.sub('', bot_response)
+	return speak_who(bot_response, name)
+
+def get_pb_response(seed_text):
+	try:
+		result = API.talk(user_key, app_id, host, botname, seed_text, session_id=True, recent=True)
+		return result['response']
+	except:
+		result = "... I could be all wrong, but... "
+		return result
+
+def get_bot_response(text_input, bot_name):
+	pb_text = get_pb_response(text_input)
+	botresponse = bot_name.get_response(text_input)
+	text_output = pb_text + ' ' + botresponse
+	return  text_output
+
+def get_voice_input():
+	audio = r.listen(source)
+	try:
+		input_text = r.recognize_google(audio)
+	except:
+		input_text = '...something I could not understand... Can we start all over again?'
+	return input_text
+
+def get_text_input():
+	input_text = raw_input('You said: ')
+	return str(input_text)
+
+def write_to_log(newtime, input_text, response_text):
+	writer.writerow([newtime,input_text,response_text])
+	csvfile.flush()
+
+## Main Program Starts Here
+
+bot_pyggy = ChatBot("Pyggy",
+	read_only=True,
+    storage_adapter="chatterbot.adapters.storage.MongoDatabaseAdapter",
+    logic_adapters=[
+        "chatterbot.adapters.logic.ClosestMatchAdapter"
+    ],
+    io_adapters=[
+        "chatterbot.adapters.io.NoOutputAdapter"
+    ],
+    database="database_movie_4000_rand_pyggy")
+
+# Only need to train this once
+# bot_pyggy.train("chatterbot.corpus.english.movielines4000_rand_pyggy")
+
+bot_blue = ChatBot("Blue",
+	read_only=True,
+    storage_adapter="chatterbot.adapters.storage.MongoDatabaseAdapter",
+    logic_adapters=[
+        "chatterbot.adapters.logic.ClosestMatchAdapter"
+    ],
+    io_adapters=[
+        "chatterbot.adapters.io.NoOutputAdapter"
+    ],
+    database="database_movie_4000_rand_blue")
+
+# Only need to train this once
+# bot_blue.train("chatterbot.corpus.english.movielines4000_rand_blue")
+	
 host = 'aiaas.pandorabots.com'
 user_key = uk
 app_id = aid
 botname = 'pyggy2'
 
-## Diagnostic information
+# Set some default inputs
+if (len(sys.argv) < 2):
+	userinput = 'bot' # or 'voice' or 'bot'
+else:
+	userinput = sys.argv[1]
 
-#result = API.list_bots(user_key, app_id, host)
-#print result
+if (len(sys.argv) < 3):
+	robotoutput = 'text' # or 'voiceandtext'
+else:
+	robotoutput = sys.argv[2]
 
-# for i in os.listdir('pyggy'):
-# 	filename = 'pyggy/' + i
-# 	result = API.upload_file(user_key, app_id, host, botname, filename)
-# 	print result
-
-# result = API.list_files(user_key, app_id, host, botname)
-# print result
-
-# result = API.compile_bot(user_key, app_id, host, botname)
-# print result
-
-def speak_response(response):
-	bot_response = response
-	# Some basic data cleaning
-	bot_response = bot_response.replace("'", "")
-	bot_response = bot_response.replace("\n", "")
-	bot_response = bot_response.replace(";", "")
-	print("Pyggy said: " + bot_response)
-	system("say -v Fiona -r 110 " + bot_response)
-	
+if (len(sys.argv) < 4):
+	if userinput == 'bot':
+		input_text = 'Food is human energy.'
+	else:
+		input_text = None
+else:
+	input_text = sys.argv[3]
 
 # obtain audio from the microphone	
 warnings.filterwarnings("ignore")
 r = sr.Recognizer()
-
-lm = ngram.train_char_lm("pg.txt", order=12)
-short_sonnet = ngram.generate_text(lm, 12, nletters=200)
 
 timenow = time.time()
 with open('logs/' + str(timenow) + '_log.csv', 'wb') as csvfile:
@@ -56,25 +134,32 @@ with open('logs/' + str(timenow) + '_log.csv', 'wb') as csvfile:
 		writer = csv.writer(csvfile)
 		fieldnames = ['timestamp', 'input_text', 'response']
 		writer.writerow(fieldnames)
-		opener = "Let's start with your name..."
-		speak_response(opener)
 		while True:
-			audio = r.listen(source)
-			try:
-				input_text = r.recognize_google(audio)
-				print("You said: " + input_text)
-				result = API.talk(user_key, app_id, host, botname, input_text, session_id=True, recent=True)
-				response = result['response']
-				writer.writerow([time.time(),input_text,response])
-				csvfile.flush()
-				speak_response(response)
-				# time.sleep(0.1)
-			except:
-				pass
-			
-			
+			# Dialog starter to come up with text first
+			# Human spoken responses
+			if userinput == 'voice':
+				input_text = get_voice_input()
+				speak_response(input_text, 'You')
 
+			if userinput == 'text':
+				if not input_text:
+					input_text = get_text_input()
+				else:
+					# Handle the first line of dialog nicely
+					speak_response(input_text, 'You')	
 
+			if userinput == 'bot':
+				if ('response_text' in locals()):
+					input_text = get_bot_response(response_text, bot_pyggy)
+				
+				speak_response(input_text, 'YouBot')
 
+			# Dialog responder to come up with the response to the previous message
+			response_text = get_bot_response(input_text, bot_blue)
+			speak_response(response_text, 'Pyggy')
 
+			# Save the back and forth to the CSV log
+			write_to_log(time.time(),input_text,response_text)
 
+			# Reset the diaglog text
+			input_text = None

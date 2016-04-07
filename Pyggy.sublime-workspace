@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"conv",
+				"convo_dict"
+			],
+			[
 				"botre",
 				"botresponse1"
 			],
@@ -83,23 +87,7 @@
 			"file": "pyggyOnPyggy.py",
 			"settings":
 			{
-				"buffer_size": 3408,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/chatterbot.py",
-			"settings":
-			{
-				"buffer_size": 2801,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "pyggy.py",
-			"settings":
-			{
-				"buffer_size": 1897,
+				"buffer_size": 4430,
 				"line_ending": "Unix"
 			}
 		}
@@ -169,29 +157,26 @@
 	"expanded_folders":
 	[
 		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/pyggy/good/Pyggy",
-		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot",
-		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/adapters",
-		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/adapters/io",
-		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/adapters/logic",
-		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/conversation",
-		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/corpus",
-		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/corpus/data",
-		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/corpus/data/english",
-		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/utils"
+		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/cornell movie-dialogs corpus",
+		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot"
 	],
 	"file_history":
 	[
+		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/The-Plotto-Plot-Machine/Scripts/main.py",
+		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/pyggy/good/Pyggy/pyggyOnPyggy.py",
+		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/cornell movie-dialogs corpus/conversations-to-aiml.py",
+		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/pyggy/good/Pyggy/markovgen.py",
+		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/cornell movie-dialogs corpus/movielines4000_raw.txt",
+		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/pyggy/good/Pyggy/pyggy.py",
 		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/chatterbot.py",
 		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/corpus/corpus.py",
 		"/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/training.py",
-		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/cornell movie-dialogs corpus/conversations-to-aiml.py",
 		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/cornell movie-dialogs corpus/movielines10000.json",
 		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/pyggy/good/Pyggy/chatbots.py",
 		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/cornell movie-dialogs corpus/movielines.json",
 		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/pyggy/good/Pyggy/ngram.py",
 		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/SABL/SABL_java (1)/TAMERAgent.java",
 		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/pyggy/good/Pyggy/sonnets.txt",
-		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/pyggy/good/Pyggy/pyggy.py",
 		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/pyggy/good/Pyggy/chatter.py",
 		"/Users/korymathewson/Desktop/Maluuba Offer",
 		"/Users/korymathewson/Dropbox/School/Graduate/CMPUT/projects/pyggy/good/Pyggy/rnn.py",
@@ -287,7 +272,7 @@
 	],
 	"find":
 	{
-		"height": 37.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -358,15 +343,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3408,
+						"buffer_size": 4430,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								689,
-								689
+								1990,
+								1990
 							]
 						],
 						"settings":
@@ -375,69 +360,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 191.0,
+						"translation.y": 996.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/chatterbot/chatterbot.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2801,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1773,
-								1773
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1023.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "pyggy.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1897,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1569,
-								1531
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 801.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -476,7 +402,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 248.0
+		"height": 328.0
 	},
 	"output.find_results":
 	{
@@ -528,7 +454,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 239.0,
+	"side_bar_width": 355.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
