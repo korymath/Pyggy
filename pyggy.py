@@ -52,12 +52,12 @@ def get_bot_response(text_input, bot_name):
 	botresponse = bot_name.get_response(text_input)
 
 	# Randomly continue down conversation chains
-	comb_choice = random.randint(1,3)
-	if comb_choice == 1:
+	comb_choice = random.random()
+	if comb_choice < 0.7:
 		text_output = pb_text + ' ' + botresponse
-	elif comb_choice == 2:
+	elif comb_choice >= 0.7 and comb_choice < 0.85:
 		text_output = pb_text
-	elif comb_choice == 3:
+	elif comb_choice >= 0.85:
 		text_output = botresponse
 	return  text_output
 
