@@ -19,11 +19,11 @@ def speak_who(text, name):
 	print name + " said: " + text
 	if name == 'YouBot':
 		if robotoutput == 'voiceandtext':
-			system("say -v Tom -r 250 " + text) 
+			system("say -v Tom -r 180 " + text) 
 		return True
 	elif name == 'Pyggy':
 		if robotoutput == 'voiceandtext':
-			system("say -v Samantha -r 250 " + text)
+			system("say -v Samantha -r 180 " + text)
 		return True
 	else:
 		return False
@@ -50,7 +50,15 @@ def get_pb_response(seed_text):
 def get_bot_response(text_input, bot_name):
 	pb_text = get_pb_response(text_input)
 	botresponse = bot_name.get_response(text_input)
-	text_output = pb_text + ' ' + botresponse
+
+	# Randomly continue down conversation chains
+	comb_choice = random.randint(1,3)
+	if comb_choice == 1:
+		text_output = pb_text + ' ' + botresponse
+	elif comb_choice == 2:
+		text_output = pb_text
+	elif comb_choice == 3:
+		text_output = botresponse
 	return  text_output
 
 def get_voice_input():
@@ -80,10 +88,10 @@ bot_pyggy = ChatBot("Pyggy",
     io_adapters=[
         "chatterbot.adapters.io.NoOutputAdapter"
     ],
-    database="database_movie_4000_rand_pyggy")
+    database="database_movie_20000_rand_pyggy_new3")
 
 # Only need to train this once
-# bot_pyggy.train("chatterbot.corpus.english.movielines4000_rand_pyggy")
+# bot_pyggy.train("chatterbot.corpus.english.movielines20000_rand_pyggy")
 
 bot_blue = ChatBot("Blue",
 	read_only=True,
@@ -94,10 +102,10 @@ bot_blue = ChatBot("Blue",
     io_adapters=[
         "chatterbot.adapters.io.NoOutputAdapter"
     ],
-    database="database_movie_4000_rand_blue")
+    database="database_movie_4000_rand_blue_new2")
 
 # Only need to train this once
-# bot_blue.train("chatterbot.corpus.english.movielines4000_rand_blue")
+# bot_blue.train("chatterbot.corpus.english.movielines20000_rand_blue")
 	
 host = 'aiaas.pandorabots.com'
 user_key = uk
