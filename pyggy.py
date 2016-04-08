@@ -5,10 +5,8 @@ from keys import uk, aid
 import speech_recognition as sr
 from pb_py import main as API
 import csv
-import ngram
 import random
 from chatterbot import ChatBot
-import ngram
 import os.path
 import re
 import sys
